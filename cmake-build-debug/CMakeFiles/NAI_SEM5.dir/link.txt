@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/NAI_SEM5.dir/lab1/main.cpp.o -o NAI_SEM5 

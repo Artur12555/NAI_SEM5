@@ -23,10 +23,16 @@ int main(int argc, char **argv) {
 
     opcje["sin"] = [](int x, int y=0) { return sin(x); };
     try {
-        wypiszWartosci(opcje[lista.at(1)], stoi(lista.at(2)), stoi(lista.at(3)));
-    } catch (bad_function_call bfc) {
+        if (lista.at(1)=="sin") {
+            wypiszWartosci(opcje[lista.at(1)], stoi(lista.at(2)));
+        } else if (lista.at(1)=="add" || lista.at(1)=="mod") {
+            wypiszWartosci(opcje[lista.at(1)], stoi(lista.at(2)), stoi(lista.at(3)));
+        }else{
+            cout << "1.Wybierz jedna z trzech opcji: add, mod lub sin." << endl;
+        }
+    }
+    catch (bad_function_call bfc) {
         cout << "Opcje: add, mod, sin" << endl;
     }
-
     return 0;
 }
