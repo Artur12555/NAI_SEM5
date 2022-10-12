@@ -7,30 +7,35 @@
 
 
 using namespace std;
-using funkcja = function<float(int x, int y)>;
+using funkcja = std::function<double(std::vector<double>)>;
 
-void wypiszWartosci(const funkcja& func, int x, int y=0){
-    cout << func(x, y) << endl;
+void wypiszWartosci(std::vector<double> numbers, funkcja fun) {
+    using namespace std;
+    cout << fun(numbers) << endl;
 }
 // argc ilosc argumentów, **argv podwójny wskaznik na tablice + lista przekazywanych argumentów
 
 int main(int argc, char **argv) {
     vector<string> lista(argv, argc + argv);//vector wskazuje na pierwsze ostatnie miejsce w tablicy
     map<string, funkcja> opcje; //mapa opcje klucz jako string, value funkcja, opcje zwraca float
-    opcje["add"] = [](int x, int y) { return x + y; };
+    opcje["mod"] = [](vector<double> numbers) { return (int)numbers.front() % (int)numbers.back();};
 
-    opcje["mod"] = [](int x, int y) { return x % y; };
+    opcje["add"] = [](vector<double> numbers) { return  numbers.front() + numbers.back();};
 
-    opcje["sin"] = [](int x, int y=0) { return sin(x); };
+    opcje["sin"] = [](vector<double> numbers) { return sin(numbers.front());};
 
-    if (lista.at(1)=="sin") {
-            wypiszWartosci(opcje[lista.at(1)], stoi(lista.at(2)));
-        } else if (lista.at(1)=="add" || lista.at(1)=="mod") {
-            wypiszWartosci(opcje[lista.at(1)], stoi(lista.at(2)), stoi(lista.at(3)));
-        }else{
-            cout << "Opcje do wyboru: add, mod, sin" << endl;
-        }
+    try {
+        vector<string> arguments(argv, argv + argc);
+        auto selected_f = arguments.at(1);
 
+        vector<double> numbers = {{stod(arguments.at(2)), stod(arguments.back())}};
+        wypiszWartosci(numbers, opcje.at(selected_f));
+    } catch (std::out_of_range aor) {
+        cout << "Źle, dostępne opcje: : ";
+        for (auto [k, v] : opcje) cout << " " << k;
+        cout << endl;
+        return 1;
+    }
 
     return 0;
 }
