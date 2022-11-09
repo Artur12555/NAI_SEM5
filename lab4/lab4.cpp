@@ -32,14 +32,18 @@ pair<double, double> mutate(chromosome_t chromosome){
     if(chromosome.at(1)==1){flagay=true;}
     int splitter = chromosome.size() / 2;
     int z = 1;
+    int y = 10000;
     for(int i=splitter; i > 1; i--){
-        result.first += (chromosome.at(i) * pow(z, 4) * sqrt(i) + z);
+        result.first += (chromosome.at(i) * pow(z, 4) * sqrt(i) + z * sqrt(y));
         z++;
+        if (y<2) { y++; } else {y--;};
     }
     z = 1;
+    y=10000;
     for (int i = chromosome.size()-1; i > splitter; i--) {
-        result.second += (chromosome.at(i) * pow(z, 4) * sqrt(i) + z);
+        result.second += (chromosome.at(i) * pow(z, 4) * sqrt(i) + z * sqrt(y));
         z++;
+        if (y<2) { y++; } else {y--;};
     }
 
     if(flagax){ result.first*=-1;}
@@ -113,10 +117,8 @@ chromosome_t mutation_empty(chromosome_t parents, double p_mutation) {
     return parents;
 }
 int main() {
-
-
-    auto cross = [](pair<double, double> xy) {
-        return -0.0001*(pow((fabs(sin(xy.first)*sin(xy.second)*exp(fabs(100-(sqrt(pow(xy.first,2)+pow(xy.second,2)))/M_PI))+1)),0.1));
+    auto beale = [](pair<double, double> xy) {
+        return ((pow(1.5 - xy.first + (xy.first*xy.second), 2))+(pow((2.25 - xy.first + (xy.first*pow(xy.second,2))),2))+(pow((2.625 - xy.first + (xy.first* pow(xy.second, 3))), 2)));
     };
 
     population_t population = populate(10000, 100+(22984%10)*2);
@@ -126,7 +128,7 @@ int main() {
                                     [](auto a, auto b) { return true; },
                                     selection_empty, 1.0,
                                     crossover_empty,
-                                    0.01, mutation_empty, cross, {-10, 10}, -2.06261);
+                                    0.01, mutation_empty, beale, {-4.5,4.5}, 0);
     for (chromosome_t chromosome: result) {
 //        cout << "[";
 //        for (int p: chromosome) {
