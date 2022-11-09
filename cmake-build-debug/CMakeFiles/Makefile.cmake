@@ -47,4 +47,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/NAI_SEM5.dir/DependInfo.cmake"
+  "CMakeFiles/lab3.dir/DependInfo.cmake"
+  "CMakeFiles/lab2.dir/DependInfo.cmake"
+  "CMakeFiles/lab4.dir/DependInfo.cmake"
   )

@@ -65,16 +65,6 @@ CMAKE_BINARY_DIR = /home/eclipse/Desktop/NAI_SEM5/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/opt/clion-2021.3.4/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -84,6 +74,16 @@ rebuild_cache:
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/opt/clion-2021.3.4/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -129,6 +129,45 @@ NAI_SEM5/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/NAI_SEM5.dir/build.make CMakeFiles/NAI_SEM5.dir/build
 .PHONY : NAI_SEM5/fast
 
+#=============================================================================
+# Target rules for targets named lab3
+
+# Build rule for target.
+lab3: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab3
+.PHONY : lab3
+
+# fast build rule for target.
+lab3/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/build
+.PHONY : lab3/fast
+
+#=============================================================================
+# Target rules for targets named lab2
+
+# Build rule for target.
+lab2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab2
+.PHONY : lab2
+
+# fast build rule for target.
+lab2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/build
+.PHONY : lab2/fast
+
+#=============================================================================
+# Target rules for targets named lab4
+
+# Build rule for target.
+lab4: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab4
+.PHONY : lab4
+
+# fast build rule for target.
+lab4/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/build
+.PHONY : lab4/fast
+
 lab1/main.o: lab1/main.cpp.o
 .PHONY : lab1/main.o
 
@@ -153,6 +192,78 @@ lab1/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/NAI_SEM5.dir/build.make CMakeFiles/NAI_SEM5.dir/lab1/main.cpp.s
 .PHONY : lab1/main.cpp.s
 
+lab2/lab2.o: lab2/lab2.cpp.o
+.PHONY : lab2/lab2.o
+
+# target to build an object file
+lab2/lab2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/lab2/lab2.cpp.o
+.PHONY : lab2/lab2.cpp.o
+
+lab2/lab2.i: lab2/lab2.cpp.i
+.PHONY : lab2/lab2.i
+
+# target to preprocess a source file
+lab2/lab2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/lab2/lab2.cpp.i
+.PHONY : lab2/lab2.cpp.i
+
+lab2/lab2.s: lab2/lab2.cpp.s
+.PHONY : lab2/lab2.s
+
+# target to generate assembly for a file
+lab2/lab2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/lab2/lab2.cpp.s
+.PHONY : lab2/lab2.cpp.s
+
+lab3/lab3.o: lab3/lab3.cpp.o
+.PHONY : lab3/lab3.o
+
+# target to build an object file
+lab3/lab3.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/lab3/lab3.cpp.o
+.PHONY : lab3/lab3.cpp.o
+
+lab3/lab3.i: lab3/lab3.cpp.i
+.PHONY : lab3/lab3.i
+
+# target to preprocess a source file
+lab3/lab3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/lab3/lab3.cpp.i
+.PHONY : lab3/lab3.cpp.i
+
+lab3/lab3.s: lab3/lab3.cpp.s
+.PHONY : lab3/lab3.s
+
+# target to generate assembly for a file
+lab3/lab3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/lab3/lab3.cpp.s
+.PHONY : lab3/lab3.cpp.s
+
+lab4/lab4.o: lab4/lab4.cpp.o
+.PHONY : lab4/lab4.o
+
+# target to build an object file
+lab4/lab4.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/lab4/lab4.cpp.o
+.PHONY : lab4/lab4.cpp.o
+
+lab4/lab4.i: lab4/lab4.cpp.i
+.PHONY : lab4/lab4.i
+
+# target to preprocess a source file
+lab4/lab4.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/lab4/lab4.cpp.i
+.PHONY : lab4/lab4.cpp.i
+
+lab4/lab4.s: lab4/lab4.cpp.s
+.PHONY : lab4/lab4.s
+
+# target to generate assembly for a file
+lab4/lab4.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab4.dir/build.make CMakeFiles/lab4.dir/lab4/lab4.cpp.s
+.PHONY : lab4/lab4.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,9 +273,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... NAI_SEM5"
+	@echo "... lab2"
+	@echo "... lab3"
+	@echo "... lab4"
 	@echo "... lab1/main.o"
 	@echo "... lab1/main.i"
 	@echo "... lab1/main.s"
+	@echo "... lab2/lab2.o"
+	@echo "... lab2/lab2.i"
+	@echo "... lab2/lab2.s"
+	@echo "... lab3/lab3.o"
+	@echo "... lab3/lab3.i"
+	@echo "... lab3/lab3.s"
+	@echo "... lab4/lab4.o"
+	@echo "... lab4/lab4.i"
+	@echo "... lab4/lab4.s"
 .PHONY : help
 
 
