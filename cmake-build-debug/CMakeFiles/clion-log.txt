@@ -1,4 +1,4 @@
-/opt/clion-2021.3.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/eclipse/Desktop/NAI_SEM5
+"C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S C:\Users\s22984\CLionProjects\NAI_SEM51 -B C:\Users\s22984\CLionProjects\NAI_SEM51\cmake-build-debug
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/eclipse/Desktop/NAI_SEM5/cmake-build-debug
+-- Build files have been written to: C:/Users/s22984/CLionProjects/NAI_SEM51/cmake-build-debug
