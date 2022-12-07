@@ -1,15 +1,19 @@
-cmake_minimum_required(VERSION 3.21.1)
+cmake_minimum_required(VERSION 3.23)
 project(NAI_SEM5)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
-add_executable(NAI_SEM5
-        lab1/main.cpp)
+add_executable(lab7 lab7/lab7.cpp)
 
-add_executable(lab2 lab2/lab2.cpp lab5/lab5.cpp)
+# UWAGA: TU ZAMIEN KATALOG W KTORYM JEST OPENCV!!!!
+set(OpenCV_DIR "C:\\Users\\czarn\\Documents\\repozytorium\\opencv-4.x\\cmake-build-release")
 
-add_executable(lab3 lab3/lab3.cpp)
+find_package( OpenCV REQUIRED )
 
-add_executable(lab4 lab4/lab4.cpp)
+if( OpenCV_FOUND )
+    include_directories( ${OpenCV_INCLUDE_DIRS} )
+    link_directories( ${OpenCV_LIB_DIR} )
+    #target_link_libraries( ocvdemo ${OpenCV_LIBS} ) # - to jest wersja dzialajaca na linux, ale nie na windows
 
-add_executable(lab5 lab5/lab5.cpp)
+    target_link_libraries( lab7 opencv_core;opencv_highgui;opencv_imgcodecs;opencv_imgproc;opencv_videoio )
+endif()
